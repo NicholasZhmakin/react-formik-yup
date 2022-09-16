@@ -15,17 +15,15 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { SignupSchema } from './../validation-schema';
 import { ISignupValues } from './../types';
 
-
-const Form: React.FC = () => {
-
-  const initialValues: ISignupValues  = {
+const ThirdStepUseFormik: React.FC = () => {
+  const initialValues: ISignupValues = {
     email: '',
-      username: '',
-      password: '',
-      ['confirm-password']: '',
-      firstName: '',
-      lastName: '',
-      policy: false,
+    username: '',
+    password: '',
+    ['confirm-password']: '',
+    firstName: '',
+    lastName: '',
+    policy: false,
   };
 
   const onSubmit = async (values, actions) => {
@@ -115,7 +113,9 @@ const Form: React.FC = () => {
         label="Confirm password"
         variant="filled"
         {...getFieldProps('confirm-password')}
-        error={touched['confirm-password'] && Boolean(errors['confirm-password'])}
+        error={
+          touched['confirm-password'] && Boolean(errors['confirm-password'])
+        }
         helperText={touched['confirm-password'] && errors['confirm-password']}
         type={showValue.confirmPassword ? 'text' : 'password'}
         InputProps={{
@@ -154,25 +154,23 @@ const Form: React.FC = () => {
       />
 
       <FormControlLabel
-        control={<Checkbox/>}
+        control={<Checkbox />}
         label="I agree to terms & conditions"
         name="policy"
         {...getFieldProps('policy')}
       />
 
-      <FormHelperText error={touched.policy && Boolean(errors.policy)}>
-        {errors.policy}
-      </FormHelperText>
-       
-      <Button 
-       variant="contained" 
-       type="submit"
-       disabled={isSubmitting}
-      >
+      {touched.policy && Boolean(errors.policy) && (
+        <FormHelperText error={touched.policy && Boolean(errors.policy)}>
+          {errors.policy}
+        </FormHelperText>
+      )}
+
+      <Button variant="contained" type="submit" disabled={isSubmitting}>
         Submit
       </Button>
     </form>
   );
 };
 
-export default Form;
+export default ThirdStepUseFormik;

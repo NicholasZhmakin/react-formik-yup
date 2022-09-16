@@ -15,17 +15,15 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { SignupSchema } from './../validation-schema';
 import { ISignupValues } from './../types';
 
-
-const Form: React.FC = () => {
-
-  const initialValues: ISignupValues  = {
+const SecondStepUseFormik: React.FC = () => {
+  const initialValues: ISignupValues = {
     email: '',
-      username: '',
-      password: '',
-      ['confirm-password']: '',
-      firstName: '',
-      lastName: '',
-      policy: false,
+    username: '',
+    password: '',
+    ['confirm-password']: '',
+    firstName: '',
+    lastName: '',
+    policy: false,
   };
 
   const onSubmit = async (values, actions) => {
@@ -122,7 +120,9 @@ const Form: React.FC = () => {
         value={values['confirm-password']}
         onChange={handleChange}
         onBlur={handleBlur}
-        error={touched['confirm-password'] && Boolean(errors['confirm-password'])}
+        error={
+          touched['confirm-password'] && Boolean(errors['confirm-password'])
+        }
         helperText={touched['confirm-password'] && errors['confirm-password']}
         type={showValue.confirmPassword ? 'text' : 'password'}
         InputProps={{
@@ -167,25 +167,23 @@ const Form: React.FC = () => {
       <FormControlLabel
         control={<Checkbox />}
         label="I agree to terms & conditions"
-        checked={values.policy}  
+        checked={values.policy}
         name="policy"
         onChange={handleChange}
         onBlur={handleBlur}
       />
 
-      <FormHelperText error={touched.policy && Boolean(errors.policy)}>
-        {errors.policy}
-      </FormHelperText>
-       
-      <Button 
-       variant="contained" 
-       type="submit"
-       disabled={isSubmitting}
-      >
+      {touched.policy && Boolean(errors.policy) && (
+        <FormHelperText error={touched.policy && Boolean(errors.policy)}>
+          {errors.policy}
+        </FormHelperText>
+      )}
+
+      <Button variant="contained" type="submit" disabled={isSubmitting}>
         Submit
       </Button>
     </form>
   );
 };
 
-export default Form;
+export default SecondStepUseFormik;

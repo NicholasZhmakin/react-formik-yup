@@ -3,3 +3,27 @@
 html {
   font-family: 'Roboto mono', monospace;
 }
+
+.error-message {
+  color: red;
+}
+
+.custom-input {
+  margin-bottom: 5px;
+  outline: none;
+  height: 25px;
+  font-size: 16px;
+  border: 2px solid darkblue;
+}
+
+.submit-button {
+  margin: 0 auto;
+  outline: none;
+  width: 150px;
+  height: 35px;
+  color: white;
+  background: orange;
+  cursor: pointer;
+  border-radius: 20px;
+  border: 3px solid rgb(230, 111, 0);
+}

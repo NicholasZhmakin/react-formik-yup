@@ -13,17 +13,15 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 import { ISignupValues } from './../types';
 
-
-const Form: React.FC = () => {
-
-  const initialValues: ISignupValues  = {
+const FirstStepUseFormik: React.FC = () => {
+  const initialValues: ISignupValues = {
     email: '',
-      username: '',
-      password: '',
-      ['confirm-password']: '',
-      firstName: '',
-      lastName: '',
-      policy: false,
+    username: '',
+    password: '',
+    ['confirm-password']: '',
+    firstName: '',
+    lastName: '',
+    policy: false,
   };
 
   const formik = useFormik({
@@ -146,4 +144,4 @@ const Form: React.FC = () => {
   );
 };
 
-export default Form;
+export default FirstStepUseFormik;
