@@ -39,6 +39,7 @@ const Form: React.FC = () => {
     touched,
     errors,
     isSubmitting,
+    getFieldProps,
     handleChange,
     handleSubmit,
     handleBlur,
@@ -70,9 +71,7 @@ const Form: React.FC = () => {
         name="email"
         label="Email"
         variant="filled"
-        value={values.email}
-        onChange={handleChange}
-        onBlur={handleBlur}
+        {...getFieldProps('email')}
         error={touched.email && Boolean(errors.email)}
         helperText={touched.email && errors.email}
       />
@@ -81,9 +80,7 @@ const Form: React.FC = () => {
         name="username"
         label="Username"
         variant="filled"
-        value={values.username}
-        onChange={handleChange}
-        onBlur={handleBlur}
+        {...getFieldProps('username')}
         error={touched.username && Boolean(errors.username)}
         helperText={touched.username && errors.username}
       />
@@ -92,9 +89,7 @@ const Form: React.FC = () => {
         name="password"
         label="Password"
         variant="filled"
-        value={values.password}
-        onChange={handleChange}
-        onBlur={handleBlur}
+        {...getFieldProps('password')}
         error={touched.password && Boolean(errors.password)}
         helperText={touched.password && errors.password}
         type={showValue.password ? 'text' : 'password'}
@@ -119,9 +114,7 @@ const Form: React.FC = () => {
         name="confirm-password"
         label="Confirm password"
         variant="filled"
-        value={values['confirm-password']}
-        onChange={handleChange}
-        onBlur={handleBlur}
+        {...getFieldProps('confirm-password')}
         error={touched['confirm-password'] && Boolean(errors['confirm-password'])}
         helperText={touched['confirm-password'] && errors['confirm-password']}
         type={showValue.confirmPassword ? 'text' : 'password'}
@@ -146,9 +139,7 @@ const Form: React.FC = () => {
         name="firstName"
         label="First name"
         variant="filled"
-        value={values.firstName}
-        onChange={handleChange}
-        onBlur={handleBlur}
+        {...getFieldProps('firstName')}
         error={touched.firstName && Boolean(errors.firstName)}
         helperText={touched.firstName && errors.firstName}
       />
@@ -157,20 +148,16 @@ const Form: React.FC = () => {
         name="lastName"
         label="Last name"
         variant="filled"
-        value={values.lastName}
-        onChange={handleChange}
-        onBlur={handleBlur}
+        {...getFieldProps('lastName')}
         error={touched.lastName && Boolean(errors.lastName)}
         helperText={touched.lastName && errors.lastName}
       />
 
       <FormControlLabel
-        control={<Checkbox />}
+        control={<Checkbox/>}
         label="I agree to terms & conditions"
-        checked={values.policy}  
         name="policy"
-        onChange={handleChange}
-        onBlur={handleBlur}
+        {...getFieldProps('policy')}
       />
 
       <FormHelperText error={touched.policy && Boolean(errors.policy)}>

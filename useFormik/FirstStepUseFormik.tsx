@@ -11,17 +11,23 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
+import { ISignupValues } from './../types';
+
+
 const Form: React.FC = () => {
-  const formik = useFormik({
-    initialValues: {
-      email: '',
+
+  const initialValues: ISignupValues  = {
+    email: '',
       username: '',
       password: '',
       ['confirm-password']: '',
       firstName: '',
       lastName: '',
       policy: false,
-    },
+  };
+
+  const formik = useFormik({
+    initialValues,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
     },
@@ -42,6 +48,7 @@ const Form: React.FC = () => {
   return (
     <form
       autoComplete="off"
+      onSubmit={formik.handleSubmit}
       style={{ display: 'flex', flexDirection: 'column' }}
     >
       <TextField
@@ -125,9 +132,10 @@ const Form: React.FC = () => {
       />
 
       <FormControlLabel
-        control={<Checkbox checked={formik.values.policy} />}
+        control={<Checkbox />}
         label="I agree to terms & conditions"
         name="policy"
+        checked={formik.values.policy}
         onChange={formik.handleChange}
       />
 

@@ -6,5 +6,5 @@ export interface ISignupValues {
   ['confirm-password']: string,
   firstName: string,
   lastName: string,
-  policy: bool,
+  policy: boolean,
 }
