@@ -5,23 +5,35 @@ html {
 }
 
 .error-message {
-  color: red;
+  text-align: center;
+  color: rgb(230, 49, 49);
+}
+
+.custom-label {
+  color: white;
+  text-transform: capitalize;
+  margin-right: 5px;
 }
 
 .custom-input {
-  margin-bottom: 5px;
+  padding: 5px;
   outline: none;
   height: 25px;
   font-size: 16px;
+  border-radius: 20px;
   border: 2px solid darkblue;
 }
 
 .submit-button {
+  display: block;
   margin: 0 auto;
   outline: none;
   width: 150px;
   height: 35px;
   color: white;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 600;
   background: orange;
   cursor: pointer;
   border-radius: 20px;
@@ -31,3 +43,50 @@ html {
 .submit-button:hover {
   background: rgb(230, 111, 0);
 }
+
+
+.friends {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.friend-card {
+  padding: 10px;
+  background-color: rgb(13, 5, 90);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.remove-friend-button,
+.add-friend-button {
+  margin: 5px auto;
+  padding: 0 10px;
+  outline: none;
+  height: 35px;
+  font-weight: 600;
+  color: rgb(46, 243, 6);
+  background: white;
+  cursor: pointer;
+  border-radius: 20px;
+  border: 3px solid rgb(46, 243, 6);
+}
+
+.add-friend-button:hover {
+  color: white;
+  background: rgb(46, 243, 6);
+}
+
+.remove-friend-button {
+  color: rgb(201, 0, 0);
+  border: 3px solid rgb(201, 0, 0);
+}
+
+.remove-friend-button:hover {
+  color: white;
+  background: rgb(201, 0, 0);
+}
+
+

@@ -10,6 +10,7 @@ import ThirdStepUseFormik from './useFormik/ThirdStepUseFormik';
 import FormikWithMUI from './Formik/FormikWithMUI';
 import FormikWithoutMUI from './Formik/FormikWithoutMUI';
 import CustomFormik from './Formik/CustomFormik';
+import FieldArrayForm from './Formik/FieldArrayForm';
 
 export default function App() {
   return (
