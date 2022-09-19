@@ -15,12 +15,12 @@ const CustomCheckbox: React.FC<CustomCheckboxProps> = ({ children, ...props }) =
    const [field, meta] = useField({ ...props, type: 'checkbox' });
    return (
      <div>
-       <label className="checkbox-input">
+       <label className="custom-checkbox-input">
          <input type="checkbox" {...field} {...props} />
          {children}
        </label>
        {meta.touched && meta.error ? (
-         <div className="error">{meta.error}</div>
+         <div className="error-message">{meta.error}</div>
        ) : null}
      </div>
    );
