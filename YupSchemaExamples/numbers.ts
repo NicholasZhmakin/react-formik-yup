@@ -15,7 +15,5 @@ const SchemaNumbers = Yup.object().shape({
     .moreThan(10, 'Must be more than 10')
     .lessThan(9999, 'Must be less than 9999'),
   price: Yup.number().truncate(),
-  cost: Yup.number().round('ceil')
+  cost: Yup.number().round('ceil'),
 });
-
-
