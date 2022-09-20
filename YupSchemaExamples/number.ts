@@ -7,10 +7,11 @@ import * as Yup from 'yup';
   number.round(type: 'floor' | 'ceil' | 'trunc' | 'round' = 'round'): Schema
   Adjusts the value via the specified method of Math (defaults to 'round').
 */
-const SchemaNumbers = Yup.object().shape({
+const SchemaNumber = Yup.object().shape({
   age: Yup.number().min(1, 'Min 1').max(100, 'Max 100'),
   value: Yup.number().positive('Value must be a positive number'),
-  day: Yup.number().integer(),
+  temperature: Yup.number().negative(),
+  day: Yup.number().integer().default(1),
   code: Yup.number()
     .moreThan(10, 'Must be more than 10')
     .lessThan(9999, 'Must be less than 9999'),

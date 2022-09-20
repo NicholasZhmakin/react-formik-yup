@@ -31,7 +31,7 @@ const SchemaString2 = Yup.object().shape({
 const SchemaString3 = Yup.object().shape({
   username: Yup.string()
     .length(10, 'Username must contain 10 characters')
-    .required('username is required'),
+    .required('Username is required'),
 });
 
 /*
@@ -39,7 +39,7 @@ const SchemaString3 = Yup.object().shape({
   Transforms string values by removing leading and trailing whitespace. If strict() is set it will only validate that the value is trimmed.
 */
 const SchemaString4 = Yup.object().shape({
-  username: Yup.string().trim(),
+  username: Yup.string().trim().nullable(),
 });
 
 /*
